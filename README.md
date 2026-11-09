@@ -1,2 +1,3 @@
 # backpack
-Tracker in the backpack for your projects
+Tracking app in your backpack
+ 
