@@ -21,7 +21,7 @@ Backpack is built for an individual, or a small team sharing one Mac, who needs 
 Being clear about this avoids surprises:
 
 - **It is a single-user, single-Mac application.** There is no sign-in, no sync, no sharing and no concurrent multi-user editing. Anyone who can open the app on that Mac can see and change everything.
-- **It is not a time tracker, a Gantt-chart planner or a sprint/velocity tool.** There are no estimates, story points, sprints or dependencies *between* issues (see [Limitations](#19-limitations-and-caveats-consolidated)).
+- **It is not a time tracker, a Gantt-chart planner or a sprint/velocity tool.** There are no estimates, story points, sprints or dependencies *between* issues (see [Limitations](#20-limitations-and-caveats-consolidated)).
 - **It does not send notifications or emails.** Due dates and overdue warnings are visual only.
 - **It does not import data** from other tools. You can export the RAID log to CSV; there is no general export of work items.
 
@@ -63,7 +63,7 @@ System log ── what the app did; encrypted backups and log archives protect i
 ### 3.1 Requirements
 
 - A Mac running **macOS 14 or later**.
-- To build from source: **Xcode 15 or later**. Open `Backpack.xcodeproj`, choose the **Backpack** scheme and **My Mac**, and press **⌘R**. (A command-line alternative is `swift run` from the project folder; see the *Data location* note below for how this changes where data is stored.)
+
 
 ### 3.2 First launch
 
@@ -171,7 +171,7 @@ A project is the highest level of organisation in Backpack. Every issue, label a
 Choose **Projects** in the sidebar. The screen is split in two:
 
 - **Left – the project list.** Each row shows the project name and a summary such as **`ATL · 9 open of 22`** (the key, how many items are not Done, and how many there are in total, counting work items and RAID items together). Archived projects show an archive-box icon. Use **New Project** at the bottom to add one.
-- **Right – the selected project.** The header shows the name, the key in a small badge, an orange **Archived** tag if relevant, and the description. Below the header are the buttons **Open Board**, **Labels**, **Edit**, **Archive** (or **Unarchive**) and **Delete**, followed by the [project dashboard](#11-the-project-dashboard-and-its-metrics).
+- **Right – the selected project.** The header shows the name, the key in a small badge, an orange **Archived** tag if relevant, and the description. Below the header are the buttons **Open Board**, **Labels**, **Edit**, **Archive** (or **Unarchive**) and **Delete**, followed by the [project dashboard](#12-the-project-dashboard-and-its-metrics).
 
 ### 5.2 Creating a project
 
@@ -200,7 +200,7 @@ What archiving does:
 - hides the project's RAID items from the RAID Log's default view (**All active projects**); you can still select the project by name (shown as "*Name* (archived)") to look at them, but the RAID Log's **New** menu is disabled for archived projects;
 - leaves every issue, comment, label and history entry untouched; the project stays in the list with an **Archived** tag.
 
-**Unarchive** reverses all of this. You can still find an archived project's issues through [global search](#12-global-search).
+**Unarchive** reverses all of this. You can still find an archived project's issues through [global search](#13-global-search).
 
 ### 5.5 Deleting a project
 
