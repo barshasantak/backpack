@@ -1635,4 +1635,11 @@ Backpack keeps the project's issues in memory and recalculates summaries on dema
 | **Sandbox** | macOS feature limiting what an app can access. |
 | **Work item** | A task, bug or feature. |
 
----
+
+ <br>
+ 
+ <hr>
+ 
+ <small>*© 2026 Santak Das, Tara Design Studio. All rights reserved.*</small>
+
+ <br>
