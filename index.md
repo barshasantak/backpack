@@ -100,7 +100,7 @@ Your data is a SQLite file plus two folders of encrypted files. The exact locati
 | Run with `swift run` (not sandboxed) | `~/Library/Application Support/Backpack/` |
 | Either, with the `BACKPACK_DATA_DIR` environment variable set | The folder you named |
 
-These two builds use **different data folders**, so data created in one is not visible in the other. Section 16 explains the contents and how to move data between them.
+These two builds use **different data folders**, so data created in one is not visible in the other. Section 17 explains the contents and how to move data between them.
 
 ### 3.5 Closing the app
 
@@ -123,16 +123,16 @@ The sidebar can be hidden and shown with the toolbar's sidebar button. The windo
 
 ### 4.2 Sidebar entries
 
-- **Projects** – the project list, project details and the dashboard (section 4, 11).
-- **Developers** – the people list (section 5).
-- **RAID Log** – every RAID item with a heat map (section 10).
-- **Boards → *project name*** – the board of an *active* (non-archived) project (section 7).
-- **Logs** – the system log (section 13).
-- **Security & Backups** – security audit, backups and log rotation (sections 13–15).
+- **Projects** – the project list, project details and the dashboard (section 5, 12).
+- **Developers** – the people list (section 6).
+- **RAID Log** – every RAID item with a heat map (section 11).
+- **Boards → *project name*** – the board of an *active* (non-archived) project (section 8).
+- **Logs** – the system log (section 14).
+- **Security & Backups** – security audit, backups and log rotation (sections 14–16).
 
 ### 4.3 The "Acting as" menu
 
-At the right of the title bar, the **Acting as** menu says **Acting as: assignee** by default, or **Acting as *Name*** once you pick a developer. It controls who your changes are *attributed to*. Section 5.5 explains this in detail; in short, it is how Backpack knows which developer to credit on the dashboard and as the default comment author, because the app has no sign-in.
+At the right of the title bar, the **Acting as** menu says **Acting as: assignee** by default, or **Acting as *Name*** once you pick a developer. It controls who your changes are *attributed to*. Section 6.5 explains this in detail; in short, it is how Backpack knows which developer to credit on the dashboard and as the default comment author, because the app has no sign-in.
 
 ### 4.4 Keyboard shortcuts
 
@@ -158,7 +158,7 @@ When something cannot be done (for example a name is missing or too long), Backp
 - inside **sheets** (the issue editor, comment box, project form and label manager) the message appears as a red line *within the sheet*, so it can't be hidden behind it;
 - elsewhere it appears as a **"Something went wrong"** alert at the top of the window with an **OK** button.
 
-Messages are written in plain language where the app can validate your input itself ("A label named “ui” already exists in this project."). A few uniqueness problems are reported by the database instead, with technical wording; see the troubleshooting table in section 20.
+Messages are written in plain language where the app can validate your input itself ("A label named “ui” already exists in this project."). A few uniqueness problems are reported by the database instead, with technical wording; see the troubleshooting table in section 21.
 
 ---
 
@@ -297,7 +297,7 @@ It is **not a security feature**: nothing stops you choosing someone else. It is
 
 ## 7. Issues (work items)
 
-An **issue** is the unit of tracking. This section covers the features common to *all* types; RAID-specific fields are in [section 10](#10-raid-tracking).
+An **issue** is the unit of tracking. This section covers the features common to *all* types; RAID-specific fields are in [section 11](#11-raid-tracking).
 
 ### 7.1 Types
 
@@ -306,7 +306,7 @@ An **issue** is the unit of tracking. This section covers the features common to
 | **Work items** | **Task**, **Bug**, **Feature** |
 | **RAID items** | **Risk**, **Assumption**, **Issue**, **Dependency** |
 
-The type picker lists work items first, then a divider, then the four RAID types. Type can be changed at any time (see the caveat on RAID fields in section 10.9).
+The type picker lists work items first, then a divider, then the four RAID types. Type can be changed at any time (see the caveat on RAID fields in section 11.9).
 
 ### 7.2 Statuses and priorities
 
@@ -348,14 +348,14 @@ Clicking a card, a RAID Log row, or choosing a search result opens the editor as
 | **Status** | To Do · In Progress · In Review · Done. |
 | **Priority** | Critical · High · Medium · Low. |
 | **Assignee** | *Unassigned* or an active developer. |
-| **RAID details** | Appears only for RAID types (section 10). |
+| **RAID details** | Appears only for RAID types (section 11). |
 | **Labels** | The project's labels as clickable chips. If the project has none, a hint explains how to create them. |
 | **Due date** | A switch plus a date picker. The wording follows the type: **Due date** (work items), **Review by** (risk), **Validate by** (assumption), **Resolve by** (RAID issue), **Needed by** (dependency). |
 | **History** | Existing items only: the latest 100 automatic entries, newest first, with date, description and (if known) the developer. |
 
 **Buttons:** **Delete** (existing items), **Cancel**, **Save**. **Save** is the default button (Return); **Cancel** responds to Esc. Save is disabled while the title is blank. If something is invalid, a red message appears *in the sheet*, above the buttons, and the sheet stays open so you can correct it.
 
-> **Save and Cancel apply to the Details tab only.** Comments are saved the moment you post them and are not affected by Cancel (section 9).
+> **Save and Cancel apply to the Details tab only.** Comments are saved the moment you post them and are not affected by Cancel (section 10).
 
 ### 7.5 What "Done" means in practice
 
@@ -609,14 +609,14 @@ Because there is no sign-in, the author is whoever you pick in **Posting as**.
 - **Record decisions and reasons** in comments rather than silently editing the description, so the history of the thinking survives.
 - **For RAID items,** note review outcomes, new information and any trigger events: "Vendor confirmed delay of two weeks; raising probability to Likely."
 - Use the **description for the stable spec** and **comments for the evolving story**.
-- **Never paste passwords, keys or personal data** into comments. The live database is stored unencrypted on disk (section 15).
+- **Never paste passwords, keys or personal data** into comments. The live database is stored unencrypted on disk (section 16).
 
 ### 10.7 Caveats
 
 - **Plain text only**: no formatting, links are not clickable, no @-mentions, replies/threads or attachments.
 - **No edit history**: editing replaces the old text; the previous version is not kept.
 - **No permissions**: anyone using the app can edit or delete any comment (deletions are recorded in the system log, without the text).
-- Search matches only the **first 300 characters** of each comment (section 12).
+- Search matches only the **first 300 characters** of each comment (section 13).
 - A very long thread loads in full when you open the tab; this is fine for hundreds of comments but you may notice it with many thousands.
 
 ---
@@ -717,7 +717,7 @@ Choose **RAID Log** in the sidebar. It lists every RAID item, across projects, a
 |---|---|
 | **Project** | *All active projects* (the default; archived projects are excluded) or a single project (archived ones are listed as "*name* (archived)"). |
 | **New** | Menu of the four RAID types. Items are created in the chosen project, or in the only active project. The menu is **disabled** when it cannot tell which project (several projects and *All active projects* chosen, or an archived project chosen). Hover for the reason. |
-| **Export CSV** | Writes the list currently shown (section 10.7). Disabled when nothing is shown. |
+| **Export CSV** | Writes the list currently shown (section 11.7). Disabled when nothing is shown. |
 | **Type** (segmented) | *All*, *Risks*, *Assumptions*, *Issues*, *Dependencies*. |
 | **Open only** | On by default: hides Done items. Switch off to include closed items. |
 | **Sort** | **Exposure** (highest risk score first, non-risks after; ties by priority), **Due date** (soonest first; undated last), **Newest** (most recently created first), **Type** (Risks, Assumptions, Issues, Dependencies). |
@@ -816,7 +816,7 @@ The dashboard sits under the project's details on the **Projects** screen. It re
 
 ### 12.2 RAID Summary
 
-Appears only when the project has RAID items; see section 10.8.
+Appears only when the project has RAID items; see section 11.8.
 
 ### 12.3 Charts
 
@@ -843,7 +843,7 @@ Rows are sorted by activity, highest first.
 - **"Activity" depends on attribution.** An action is credited to your **Acting as** developer, or if that is left on *Assignee*, to the item's assignee. If one person updates everyone's items without changing "Acting as", the numbers describe the *assignees*, not the person at the keyboard.
 - **Small samples mislead.** An average turnaround over three items says little; a completion rate for a new project is noisy.
 - **Reopening resets the clock.** Moving an item out of Done discards its completed time; moving it back gives a new one, so turnaround is measured to the *latest* completion.
-- **Due-date and overdue figures** have the time-of-day caveat in section 6.7.
+- **Due-date and overdue figures** have the time-of-day caveat in section 7.7.
 - **Deleting a developer** removes their past activity from the dashboard (their history entries lose the link to them).
 - **Turnaround measures elapsed calendar time,** including time spent waiting in To Do; it is not "hands-on" effort.
 
@@ -937,7 +937,7 @@ Backpack keeps **two separate records** of what happens. Knowing the difference 
 
 ### 14.1 Item history
 
-Described in section 6.8. It is capped to the latest 100 entries per item in the editor; older entries remain stored but are not shown. Due-date changes are not recorded.
+Described in section 7.8. It is capped to the latest 100 entries per item in the editor; older entries remain stored but are not shown. Due-date changes are not recorded.
 
 ### 14.2 The Logs screen
 
@@ -945,8 +945,8 @@ Choose **Logs** in the sidebar.
 
 - **Level** menu: *All levels*, *Debug*, *Info*, *Warning*, *Error*, *Audit*.
 - **Filter text or category** box: matches (ignoring case) anywhere in the message or the category.
-- **Live log *X* / *N* MB**: the current size of the live log against your rotation limit (section 13.6).
-- **Verify Integrity**: checks the tamper-evident chain (section 13.4).
+- **Live log *X* / *N* MB**: the current size of the live log against your rotation limit (section 14.6).
+- **Verify Integrity**: checks the tamper-evident chain (section 14.4).
 - The list shows the **time**, a coloured **level** tag, the **category** and the **message**, newest first, up to **1,000 matching entries**. Message text can be selected and copied.
 - When you arrive from a **search result**, the screen shows a window of about 400 entries around that entry, highlights it and scrolls to it. A **Show latest** button returns to the normal view.
 
@@ -1033,7 +1033,7 @@ An archive whose file has been removed (by the retention limit or by you) shows 
 
 - **Search covers only the live log.** Older entries are in archives; export one to read it.
 - Rotation briefly **holds the database** (about a second for 10 MB); you may notice a short pause.
-- Archives are encrypted with the **Keychain key of this Mac**: lose the key and they cannot be read (section 14.5).
+- Archives are encrypted with the **Keychain key of this Mac**: lose the key and they cannot be read (section 15.5).
 - **Restoring an older backup** brings back that backup's log, so archives created *after* it will still be on disk but will not be listed.
 - Entries removed by retention are gone for good; the audit trail keeps only the fact that a rotation happened and the archive's fingerprint.
 
@@ -1124,8 +1124,8 @@ The key is created automatically the first time you make a backup, and stored in
 | **Safe handling of input** | All database access uses bound parameters (no injection); all text is validated and length-limited; invisible control characters are stripped from comments and log messages. |
 | **Integrity** | Foreign keys are enforced; the database refuses invalid combinations (for example a RAID outcome on an open item, or a label from another project). |
 | **Secure delete** | Deleted content is overwritten rather than left in free space. |
-| **Tamper-evident log** | Section 13.4. |
-| **Encrypted backups and archives** | Section 14.1 and 13.6. |
+| **Tamper-evident log** | Section 14.4. |
+| **Encrypted backups and archives** | Section 15.1 and 14.6. |
 | **Spreadsheet-safe export** | CSV cells that begin with formula characters are neutralised. |
 | **App Sandbox** (Xcode builds) | The app can only touch its own container and files you pick in a save dialog. |
 
@@ -1156,7 +1156,7 @@ Each audit is itself recorded in the system log.
 - Malware running as you, or anyone with administrator access to the machine.
 - Deliberate deletion by someone who can use the app (deletions are logged, but there is no per-user permission).
 - Loss of the Keychain key (backups become unreadable).
-- Truncation of the *end* of the log (section 13.4).
+- Truncation of the *end* of the log (section 14.4).
 
 ### 16.5 Best practices
 
@@ -1428,9 +1428,8 @@ The order within a column is shared, so a re-ranking you make in one view stays 
 | **Dashboard "activity" follows attribution.** | It depends on *Acting as* / assignee, not on who typed. |
 | **The Done column never shrinks.** | There is no "hide done" filter. |
 | **Changing type deletes unused fields on Save.** | E.g. a dependency's counterparty. |
-| **Search sees only the first 300 characters** of each field, the latest 5,000 comments and live log entries, and has result caps. | Section 12.5. |
+| **Search sees only the first 300 characters** of each field, the latest 5,000 comments and live log entries, and has result caps. | Section 13.5. |
 | **Closing the window quits the app.** | By design. |
-| **Xcode and `swift run` builds use separate data folders.** | Section 2.4. |
 | **Comment editing keeps no previous version.** | Plain text only; anyone can edit/delete. |
 
 ### 20.3 Data protection caveats
