@@ -3,6 +3,10 @@
 <br>
 
 ## 1. Hero Section
+
+![Backpack](https://raw.githubusercontent.com/barshasantak/backpack/main/Backpack-128.png)
+<br>
+
 **Backpack** is a native macOS application for tracking projects, work and RAID items (Risks, Assumptions, Issues and Dependencies) on a single Mac. Everything is stored locally in a SQLite database; there is no account, no server and no network access.
 ### 1.1 What Backpack is for
 
