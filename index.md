@@ -21,7 +21,7 @@ Backpack is built for an individual, or a small team sharing one Mac, who needs 
 Being clear about this avoids surprises:
 
 - **It is a single-user, single-Mac application.** There is no sign-in, no sync, no sharing and no concurrent multi-user editing. Anyone who can open the app on that Mac can see and change everything.
-- **It is not a time tracker, a Gantt-chart planner or a sprint/velocity tool.** There are no estimates, story points, sprints or dependencies *between* issues (see [Limitations](#20-limitations-and-caveats-consolidated)).
+- **It is not a time tracker, a Gantt-chart planner or a sprint/velocity tool.** There are no estimates, story points, sprints or dependencies *between* issues (see Section [Limitations](#20-limitations-and-caveats-consolidated)).
 - **It does not send notifications or emails.** Due dates and overdue warnings are visual only.
 - **It does not import data** from other tools. You can export the RAID log to CSV; there is no general export of work items.
 
@@ -344,7 +344,7 @@ Clicking a card, a RAID Log row, or choosing a search result opens the editor as
 | **Title** | Required. Up to 200 characters. |
 | **Description** | Optional, up to 10,000 characters, several lines. |
 | **Project** | Chosen when creating; **locked** afterwards. Archived projects are not offered for new items. |
-| **Type** | See 6.1. |
+| **Type** | See Section 6.1. |
 | **Status** | To Do · In Progress · In Review · Done. |
 | **Priority** | Critical · High · Medium · Low. |
 | **Assignee** | *Unassigned* or an active developer. |
@@ -702,8 +702,8 @@ Rules to know:
 ### 11.5 Creating and editing RAID items
 
 - From a **board**: **New Issue** (or a column **+**) and set **Type** to Risk, Assumption, Issue or Dependency.
-- From the **RAID Log**: the **New** menu offers the four types directly (see 11.6).
-- Existing items can be **re-typed** at any time (see 11.9).
+- From the **RAID Log**: the **New** menu offers the four types directly (see Section 11.6).
+- Existing items can be **re-typed** at any time (see Section 11.9).
 
 On the board, RAID cards carry a coloured **type tag**, the risk **score chip** or the **impact**, a dependency's **counterparty** with an arrow (down-left for inbound, up-right for outbound), and, once closed, the **outcome**.
 
@@ -875,7 +875,7 @@ What happens when you open a result:
 | **Project** | The **Projects** screen with that project selected. |
 | **Issue** | The project's **board**, with that issue's editor open. |
 | **Comment** | The project's board with the issue open on its **Comments** tab. |
-| **Log entry** | The **Logs** screen, centred on that entry (see 14.2). |
+| **Log entry** | The **Logs** screen, centred on that entry (see Section 14.2). |
 
 ### 13.2 What is searched
 
@@ -1088,7 +1088,7 @@ The key is created automatically the first time you make a backup, and stored in
 
 - **Backups and log archives can only be decrypted on this Mac, with this key.** If you erase the Mac, create a new user, delete the Keychain item or move to another Mac, **existing backups and archives become unreadable**.
 - There is **no key export** feature.
-- Therefore, **backups protect you from mistakes and corruption, not from losing the Mac or its Keychain.** To protect against that, also keep a copy of the *live data folder* (which is not encrypted) in your normal backup system (see 15.6 and 17.5).
+- Therefore, **backups protect you from mistakes and corruption, not from losing the Mac or its Keychain.** To protect against that, also keep a copy of the *live data folder* (which is not encrypted) in your normal backup system (see Section 15.6 and 17.5).
 
 ### 15.6 Best practices
 
@@ -1096,7 +1096,7 @@ The key is created automatically the first time you make a backup, and stored in
 - **Back up manually before** deleting a project, restoring, doing a big clean-up, or upgrading the app.
 - **Include the data folder in Time Machine** (or your usual backup). It gives you an off-device copy of the live database *and* the backup files.
 - **Check freshness:** *Run Security Audit* warns if the newest backup is older than 48 hours or none exists.
-- **Rehearse a restore** at least once on a copy of your data (for example in a separate data folder; see 17.4) so you know it works before you need it.
+- **Rehearse a restore** at least once on a copy of your data (for example in a separate data folder; see Section 17.4) so you know it works before you need it.
 - Treat the `Backups` folder as **confidential**: although encrypted, it is a complete copy of your data.
 
 ### 15.7 Caveats
@@ -1139,7 +1139,7 @@ Open **Security & Backups** and click **Run Security Audit**. Findings are sorte
 | **SQLite integrity check** | The database file is structurally sound. | **Critical** – restore a recent backup. |
 | **Foreign-key consistency** | No record points at something that no longer exists. | **Critical** – restore a backup. |
 | **Foreign keys enforced / Secure delete / Journal mode** | The safety settings of the database are on. | Warning/Info – report if persistent. |
-| **Audit log chain** | The live log's chain is unbroken. | **Critical** – see 14.4. |
+| **Audit log chain** | The live log's chain is unbroken. | **Critical** – see Section 14.4. |
 | **Log rotation** | Rotation is on and the live log is not far over the limit (Warning when over **twice** the limit with rotation on, or over the limit with rotation off). | Turn rotation on or rotate now. |
 | **Log archives** | No archive was made from an already-broken log. Reports counts. | **Critical** if any. |
 | **Backup freshness** | A backup exists and the newest is under **48 hours** old. | **Warning** – back up now. |
@@ -1301,7 +1301,7 @@ These are suggestions, not requirements; adapt them to your team.
 
 - Each person sets **Acting as** to themselves when they sit down.
 - Use the **Assignee filter** for one-to-one check-ins and the **Type filter** to switch between "work" and "RAID" conversations.
-- Hold a short **weekly review** around the RAID Log (see 11.10) and the dashboard's **Developer Engagement** table (a prompt for conversation).
+- Hold a short **weekly review** around the RAID Log (see Section 11.10) and the dashboard's **Developer Engagement** table (a prompt for conversation).
 - Because there is no sign-in or per-person permissions, agree **norms**: do not edit others' comments; always add a comment when you change someone else's item.
 
 ### 18.4 Two ways to look at the same board
@@ -1464,11 +1464,11 @@ Backpack keeps the project's issues in memory and recalculates summaries on dema
 | *"Write something before posting a comment."* | Blank comment. | Type text. |
 | *"Comments can be up to 10,000 characters; this one is N."* | Too long. | Shorten or split. |
 | *"This issue no longer exists."* / *"This comment no longer exists."* | It was deleted while you had it open. | Close and refresh your view. |
-| *"Backpack can't open its database"* (at launch) | The database can't be opened (permissions, damage, or created by a newer app version). | See 21.3. |
-| *"Keychain error (…). The backup encryption key is unavailable."* | macOS refused access to the key. | See 21.4. |
+| *"Backpack can't open its database"* (at launch) | The database can't be opened (permissions, damage, or created by a newer app version). | See Section 21.3. |
+| *"Keychain error (…). The backup encryption key is unavailable."* | macOS refused access to the key. | See Section 21.4. |
 | *"Backup is unreadable: authentication failed (wrong key or tampered file)."* | The file isn't encrypted with this Mac's key, or is damaged. | Use a backup made on this Mac; otherwise it cannot be recovered. |
 | *"Could not decrypt: …"* (log archive) | Same cause for an archive. | Same. |
-| *"⚠︎ Chain broken at #n"* | Log integrity problem. | See 21.5. |
+| *"⚠︎ Chain broken at #n"* | Log integrity problem. | See Section 21.5. |
 
 ### 21.2 "I can't see…" / "Nothing happens when…"
 
@@ -1486,9 +1486,9 @@ Backpack keeps the project's issues in memory and recalculates summaries on dema
 | **The dashboard shows "—" or zeros** | The project has no completed work items yet (RAID items are not counted there). |
 | **Completion % seems low after adding RAID items** | It shouldn't change: RAID items are excluded. Check the work-item counts in the chart. |
 | **"Load Sample Data" has disappeared** | It is offered only when there are no projects. |
-| **My data vanished after switching how I run the app** | Xcode builds and `swift run` use different data folders (See 3.4). |
+| **My data vanished after switching how I run the app** | Xcode builds and `swift run` use different data folders (See Section 3.4). |
 | **Security Audit says "Review findings" with nothing red** | Informational items (for example, "App Sandbox" for builds run outside Xcode, or "no key yet" before a first backup) count as "review". |
-| **An item due today shows as overdue** | Due dates carry a time of day (See  7.7). |
+| **An item due today shows as overdue** | Due dates carry a time of day (See  Section 7.7). |
 | **I see a `'` at the start of text in the CSV** | It protects spreadsheets from running text as a formula; it is intentional. |
 
 ### 21.3 The app won't start ("can't open its database")
