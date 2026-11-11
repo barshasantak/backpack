@@ -1230,46 +1230,6 @@ A database created by a **newer** version cannot be opened by an older app: it r
 
 **Reading the database yourself.** You can open a **copy** of `backpack.sqlite` with any SQLite tool to explore or report. **Never edit the live file while the app is running**: changes made outside Backpack bypass its validation, history and logging, and can corrupt it.
 
-### 17.7 If you used this app under its earlier name (Tracker)
-
-Backpack is the application that used to be called **Tracker**. A name is part of an app's identity on macOS, so Backpack has its own:
-
-| | Tracker (before) | Backpack (now) |
-|---|---|---|
-| Bundle identifier | `com.example.Tracker` | `com.example.Backpack` |
-| Data folder | `…/Application Support/Tracker/` | `…/Application Support/Backpack/` |
-| Database file | `issues.sqlite` | `backpack.sqlite` |
-| Keychain item (backup key) | `com.example.Tracker.backup` | `com.example.Backpack.backup` |
-| Folder override variable | `TRACKER_DATA_DIR` | `BACKPACK_DATA_DIR` |
-
-The consequence: **the first time you open Backpack it is empty.** It does not see anything Tracker stored, and nothing is lost; your Tracker data is exactly where it was.
-
-**To bring your data across**, use the import tool that ships with the project (it needs Python 3, which comes with Apple's developer tools):
-
-1. **Quit** both Tracker and Backpack.
-2. If you run Backpack as a **sandboxed Xcode build**, **launch it once and quit it**, so macOS creates its storage area.
-3. In Terminal, from the project folder, preview what will happen:
-   `python3 tools/import_legacy_data.py --dry-run`
-   It finds Tracker's data, checks that it is healthy and tells you what it would do, without writing anything.
-4. Run it for real: `python3 tools/import_legacy_data.py`.
-5. Open Backpack and check your projects, issues, comments and RAID items. Then go to **Security & Backups → Run Security Audit** and **Back Up Now**.
-
-What the tool guarantees:
-
-- The **old folder is never changed.** It is read-only to the tool, so it remains your safety copy.
-- The copy is made with SQLite's own backup mechanism (consistent, and it includes changes not yet merged into the main file), then **verified**: integrity check, schema version and the row count of every table must match, or nothing is put in place.
-- It will **never overwrite or merge** into a Backpack database that contains data. A Backpack database that is still **empty** (such as the one created by step 2) is moved aside, not deleted.
-- It refuses to run while Tracker or Backpack is open, and stops cleanly if the old database is damaged (restore it from a Tracker backup first).
-- The new database gets owner-only permissions.
-
-What it does **not** carry over, and why:
-
-- **Tracker's encrypted backups and log archives.** They are encrypted with Tracker's Keychain key, which Backpack cannot use; Backpack creates its own key the first time it makes a backup. Keep the old folder if you may need to restore from one of those backups.
-- Consequently, **log-rotation records** that point at old archives will show those archives as "file removed"; the log chain itself carries over intact.
-
-Options: `--from <folder>` and `--to <folder>` for non-standard locations, and `--dry-run` to preview.
-
-
 ---
 
 ## 18. Recommended ways of working
