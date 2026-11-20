@@ -8,7 +8,7 @@
  
 <br>
 
-**Backpack** is a native macOS application for tracking projects, work and RAID items (Risks, Assumptions, Issues and Dependencies) on a single Mac. Everything is stored locally in a SQLite database; there is no account, no server and no network access required.
+**Backpack** is a native macOS app for tracking tasks, bugs, features, and RAID items (Risks, Assumptions, Issues, Dependencies) locally and securely on a single Mac with no accounts, no servers, and no network access needed.
  
 ### 1.1 What Backpack is for
 
